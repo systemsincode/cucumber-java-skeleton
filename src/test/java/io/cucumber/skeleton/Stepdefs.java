@@ -3,7 +3,7 @@ package io.cucumber.skeleton;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
-
+import org.junit.*;
 
 
 public class Stepdefs {
@@ -14,16 +14,33 @@ public class Stepdefs {
     }
     @When("I wait {int} hour")
     public void i_wait_hour(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
         System.out.println("Time flies when you're waiting for digestion.");
-        //throw new cucumber.api.PendingException();
     }
 
     @Then("my belly should growl")
     public void my_belly_should_growl() {
-        // Write code here that turns the phrase above into concrete actions
         System.out.println("Thats what happens when you eat " + belly.cukeCount + "cukes");
-        //throw new cucumber.api.PendingException();
     }
 
+    @Given("Gherkin unimplemented step")
+    public void unimplementedstep() {
+        throw new cucumber.api.PendingException();
+    }
+
+    @Given("Gherkin step")
+    public void step() {
+        System.out.println("Gherkin step...");
+    }
+
+    @Then("Gherkin success")
+    public void success() {
+        Assert.assertTrue(true);
+        System.out.println("I have asserted true");
+    }
+
+    @Then("Gherkin failure")
+    public void failure() {
+        Assert.fail();
+        System.out.println("I have asserted failure");
+        }
 }
