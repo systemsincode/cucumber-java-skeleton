@@ -26,3 +26,11 @@ Feature: Belly
 
   Scenario: Gherkin only unimplemented scenario
     Given Gherkin unimplemented step
+
+  Scenario: In TestRail with existing steps passes
+    Given Gherkin step
+    Then Gherkin success
+
+  Scenario: In TestRail with existing steps fails
+    Given Gherkin step
+    Then Gherkin failure
