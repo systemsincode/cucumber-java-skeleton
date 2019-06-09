@@ -1,5 +1,8 @@
 Feature: Belly
 
+  Background: Gherkin background
+    Given Gherkin background step that passes
+
   Scenario: a few cukes
     Given I have 42 cukes in my belly
     When I wait 1 hour
@@ -34,3 +37,14 @@ Feature: Belly
   Scenario: In TestRail with existing steps fails
     Given Gherkin step
     Then Gherkin failure
+
+  Scenario Outline: Gherkin Scenario Outline
+    Given Gherkin parameterised step <param>
+
+    Examples: Various parameter values to use
+      | param |
+      | a     |
+      | b     |
+      | c     |
+
+
