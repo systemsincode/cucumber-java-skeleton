@@ -47,4 +47,12 @@ Feature: Belly
       | b     |
       | c     |
 
+  Scenario Outline: Gherkin Scenario Outline fails
+    Given Gherkin parameterised step that fails <param>
+
+    Examples: Various parameter values to use
+      | param |
+      | a     |
+      | b     |
+      | c     |
 

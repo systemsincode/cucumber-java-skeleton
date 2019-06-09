@@ -54,8 +54,12 @@ public class Stepdefs {
 
     //The steps can use <> delimited parameters that reference headers in the examples table. Cucumber will replace these
 // parameters with values from the table before it tries to match the step against a step definition.
-    @Given("Gherkin parameterised step (.*)")
+    @Given("Gherkin parameterised step (.)")
     public void gherkinParameterisedStep(String a) {
         System.out.println(a);
     }
+    @Given("Gherkin parameterised step that fails (.*)")
+    public void gherkinParameterisedStepThatFails(String a) {
+        Assert.fail();
+        System.out.println("I have asserted failure");    }
 }
