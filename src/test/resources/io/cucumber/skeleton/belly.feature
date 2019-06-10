@@ -1,4 +1,4 @@
-Feature: Belly
+Feature: TestRailTestFeatureFile
 
   Background: Gherkin background
     Given Gherkin background step that passes
@@ -27,8 +27,16 @@ Feature: Belly
     Given Gherkin step
     Then Gherkin failure
 
+  @ignore
+  Scenario: Gherkin only scenario that is skipped(@ignore)
+    Given Gherkin step
+    Then Gherkin failure
+
   Scenario: Gherkin only unimplemented scenario
     Given Gherkin unimplemented step
+
+  Scenario: Gherkin only pending scenario
+    Given Gherkin only pending step
 
   Scenario: In TestRail with existing steps passes
     Given Gherkin step
@@ -56,3 +64,11 @@ Feature: Belly
       | b     |
       | c     |
 
+  Scenario Outline: Gherkin Scenario Outline partially fails
+    Given Gherkin parameterised step that partially fails <param>
+
+    Examples: Various parameter values to use
+      | param |
+      | a     |
+      | b     |
+      | c     |

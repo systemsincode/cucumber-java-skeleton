@@ -25,8 +25,8 @@ public class Stepdefs {
         System.out.println("Thats what happens when you eat " + belly.cukeCount + " cukes");
     }
 
-    @Given("Gherkin unimplemented step")
-    public void unimplementedstep() {
+    @Given("Gherkin only pending step")
+    public void pending() {
         throw new cucumber.api.PendingException();
     }
 
@@ -58,8 +58,19 @@ public class Stepdefs {
     public void gherkinParameterisedStep(String a) {
         System.out.println(a);
     }
+
     @Given("Gherkin parameterised step that fails (.*)")
     public void gherkinParameterisedStepThatFails(String a) {
         Assert.fail();
-        System.out.println("I have asserted failure");    }
+        System.out.println("I have asserted failure");
+    }
+
+    @Given("Gherkin parameterised step that partially fails (.*)")
+    public void gherkinParameterisedStepThatPartiallyFails(String a) {
+        if (a.equals("a")) {
+            Assert.fail();
+            System.out.println("I have asserted failure");
+        } else Assert.assertTrue(true);
+        System.out.println("I have asserted success");
+    }
 }
