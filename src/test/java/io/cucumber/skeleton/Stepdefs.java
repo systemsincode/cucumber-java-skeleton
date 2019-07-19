@@ -3,16 +3,21 @@ package io.cucumber.skeleton;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
+import io.cucumber.datatable.DataTable;
 import org.junit.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Stepdefs {
-    Belly belly = new Belly();
+    TestRailTest testRailTest = new TestRailTest();
     private String param;
+    private DataTable dataTable;
 
-    @Given("^I have (\\d+) cukes in my belly$")
+    @Given("^I have (\\d+) cukes in my testRailTest$")
     public void I_have_cukes_in_my_belly(int cukes) throws Throwable {
-        belly.eat(cukes);
+        testRailTest.eat(cukes);
     }
 
     @When("I wait {int} hour")
@@ -20,9 +25,9 @@ public class Stepdefs {
         System.out.println("Time flies when you're waiting " + int1 + " hour/s for digestion.");
     }
 
-    @Then("my belly should growl")
+    @Then("my testRailTest should growl")
     public void my_belly_should_growl() {
-        System.out.println("Thats what happens when you eat " + belly.cukeCount + " cukes");
+        System.out.println("Thats what happens when you eat " + testRailTest.cukeCount + " cukes");
     }
 
     @Given("Gherkin only pending step")
@@ -72,5 +77,17 @@ public class Stepdefs {
             System.out.println("I have asserted failure");
         } else Assert.assertTrue(true);
         System.out.println("I have asserted success");
+    }
+
+    @Given("Gherkin datatable step")
+    public void gherkinDatatableStep(DataTable passedDataTable) {
+        this.dataTable = passedDataTable;
+        int index = 0;
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("a","b","c"));
+        for (String item:this.dataTable.asList()){
+            System.out.println(item);
+            Assert.assertEquals("Doesn't match expected", expected.get(index), item);
+            index++;
+        }
     }
 }

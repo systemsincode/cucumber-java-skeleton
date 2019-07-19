@@ -1,12 +1,13 @@
-Feature: TestRailTestFeatureFile
+@All
+Feature: TestRailTest Feature File 1
 
   Background: Gherkin background
     Given Gherkin background step that passes
 
   Scenario: a few cukes
-    Given I have 42 cukes in my belly
+    Given I have 42 cukes in my testRailTest
     When I wait 1 hour
-    Then my belly should growl
+    Then my testRailTest should growl
 
   Scenario: Existing scenario that passes
     Given Gherkin step
@@ -46,29 +47,41 @@ Feature: TestRailTestFeatureFile
     Given Gherkin step
     Then Gherkin failure
 
-  Scenario Outline: Gherkin Scenario Outline
+  Scenario: Gherkin Scenario with data table that passes
+    Given Gherkin datatable step
+      | a     |
+      | b     |
+      | c     |
+
+  Scenario: Gherkin Scenario with data table that fails
+    Given Gherkin datatable step
+      | a     |
+      | b     |
+      | a     |
+
+  Scenario Outline: Gherkin Scenario Outline <uniqueid>
     Given Gherkin parameterised step <param>
 
     Examples: Various parameter values to use
-      | param |
-      | a     |
-      | b     |
-      | c     |
+      | uniqueid  | param |
+      | 1         | a     |
+      | 2         | b     |
+      | 3         | c     |
 
-  Scenario Outline: Gherkin Scenario Outline fails
+  Scenario Outline: Gherkin Scenario Outline fails <uniqueid>
     Given Gherkin parameterised step that fails <param>
 
     Examples: Various parameter values to use
-      | param |
-      | a     |
-      | b     |
-      | c     |
+     | uniqueid  | param |
+     | 1         | a     |
+     | 2         | b     |
+     | 3         | c     |
 
-  Scenario Outline: Gherkin Scenario Outline partially fails
+  Scenario Outline: Gherkin Scenario Outline partially fails <uniqueid>
     Given Gherkin parameterised step that partially fails <param>
 
     Examples: Various parameter values to use
-      | param |
-      | a     |
-      | b     |
-      | c     |
+      | uniqueid  | param |
+      | 1         | a     |
+      | 2         | b     |
+      | 3         | c     |
