@@ -9,16 +9,24 @@ Feature: TestRailTest Feature File 2
     When I wait 1 hour
     Then my testRailTest should growl
 
-  Scenario: Existing scenario that passes
+  Scenario: In TestRail scenario that passes
     Given Gherkin step
     Then Gherkin success
 
-  Scenario: Existing scenario that fails
+  Scenario: In TestRail scenario that fails
     Given Gherkin step
     Then Gherkin failure
 
-  Scenario: Existing unimplemented scenario
+  Scenario: In TestRail unimplemented scenario
     Given Gherkin unimplemented step
+
+  Scenario: In TestRail with existing steps passes
+    Given Gherkin step
+    Then Gherkin success
+
+  Scenario: In TestRail with existing steps fails
+    Given Gherkin step
+    Then Gherkin failure
 
   Scenario: Gherkin only scenario that passes
     Given Gherkin step
@@ -39,21 +47,13 @@ Feature: TestRailTest Feature File 2
   Scenario: Gherkin only pending scenario
     Given Gherkin only pending step
 
-  Scenario: In TestRail with existing steps passes
-    Given Gherkin step
-    Then Gherkin success
-
-  Scenario: In TestRail with existing steps fails
-    Given Gherkin step
-    Then Gherkin failure
-
-  Scenario: Gherkin Scenario with data table that passes
+  Scenario: Gherkin only scenario with data table that passes
     Given Gherkin datatable step
       | a     |
       | b     |
       | c     |
 
-  Scenario: Gherkin Scenario with data table that fails
+  Scenario: Gherkin only scenario with data table that fails
     Given Gherkin datatable step
       | a     |
       | b     |
