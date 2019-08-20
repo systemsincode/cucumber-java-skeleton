@@ -10,7 +10,7 @@ import org.junit.runners.*;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         ROOTElement.SubSuite1.class,
-        ROOTElement.SubSuite1.SubSubSuite1.class,
+        //  ROOTElement.SubSuite1.SubSubSuite1.class (moved to SubSuite1)
         ROOTElement.SubSuite2.class
 })
 
@@ -20,7 +20,8 @@ public class ROOTElement {
 
     @RunWith(Suite.class)
     @Suite.SuiteClasses({
-            RunCucumberTest.class
+            RunCucumberTest.class,
+            ROOTElement.SubSuite1.SubSubSuite1.class
     })
 
     public static class SubSuite1 {
