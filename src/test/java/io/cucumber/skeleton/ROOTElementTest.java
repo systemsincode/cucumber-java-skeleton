@@ -9,19 +9,19 @@ import org.junit.runners.*;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        ROOTElement.SubSuite1.class,
-        //  ROOTElement.SubSuite1.SubSubSuite1.class (moved to SubSuite1)
-        ROOTElement.SubSuite2.class
+        ROOTElementTest.SubSuite1.class,
+        //  ROOTElementTest.SubSuite1.SubSubSuite1.class (moved to SubSuite1)
+        ROOTElementTest.SubSuite2.class
 })
 
-public class ROOTElement {
+public class ROOTElementTest {
     // the class remains empty,
     // used only as a holder for the above annotations
 
     @RunWith(Suite.class)
     @Suite.SuiteClasses({
             RunCucumberTest.class,
-            ROOTElement.SubSuite1.SubSubSuite1.class
+            ROOTElementTest.SubSuite1.SubSubSuite1.class
     })
 
     public static class SubSuite1 {
