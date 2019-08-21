@@ -1,8 +1,8 @@
 //package io.cucumber.skeleton;
 
+import io.cucumber.skeleton.RunCucumberFeature3Test;
 import io.cucumber.skeleton.RunCucumberTest;
-import io.cucumber.skeleton.RunCucumberTestFeature2;
-import io.cucumber.skeleton.RunCucumberTestFeature3;
+import io.cucumber.skeleton.RunCucumberFeature2Test;
 
 import org.junit.runner.*;
 import org.junit.runners.*;
@@ -28,7 +28,7 @@ public class ROOTElement {
         // the class only holds the sub sub suite code
         @RunWith(Suite.class)
         @Suite.SuiteClasses({
-                RunCucumberTestFeature3.class
+                RunCucumberFeature3Test.class
         })
         public static class SubSubSuite1 {
             // the class remains empty,
@@ -39,7 +39,7 @@ public class ROOTElement {
 
     @RunWith(Suite.class)
     @Suite.SuiteClasses({
-            RunCucumberTestFeature2.class
+            RunCucumberFeature2Test.class
     })
 
     public static class SubSuite2 {

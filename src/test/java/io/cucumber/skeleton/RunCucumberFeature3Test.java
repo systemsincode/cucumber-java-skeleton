@@ -9,5 +9,5 @@ import org.junit.runner.RunWith;
         tags = "not @ignore",
         features = "src\\test\\resources\\io\\cucumber\\skeleton\\TestRailTest3trunc.feature")
 
-public class RunCucumberTestFeature3{
+public class RunCucumberFeature3Test {
 }
